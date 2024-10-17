@@ -7,26 +7,271 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
+<style>
+       
+     
+    
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu a.logo {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+    .menu ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu ul li {
+        margin: 0 10px;
+    }
+
+    .menu ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .header-content {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 36px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    form label {
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    form input, form select, form textarea {
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    form button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+
+    #hoja-vida {
+        display: none;
+        margin-top: 20px;
+       
+        padding: 20px;
+        width: 100%;
+        max-width: 600px;
+        text-align: left;
+       
+    }
+
+    #hoja-vida h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #descargarPdf {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    #nombreOutput{
+        color: black;
+    }
+
+    #apellidoOutput{
+        color: black;
+    }
+
+    #profesionOutput{
+        color: black;
+    }
+
+    #descargarPdf:hover {
+        background-color: #218838;
+    }
+
+    #container_hoja_vida{
+        margin:  auto;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: #fff;
+        justify-content: center;
+    }
+
+    #title{
+      text-align: center;
+    }
+/* Estilos generales */
+.menu {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem;
+}
+
+.logo {
+color: white;
+font-size: 1.5rem;
+font-weight: bold;
+text-decoration: none;
+}
+
+.navbar {
+display: block;
+}
+
+.navbar ul {
+list-style-type: none;
+display: flex;
+gap: 1rem;
+}
+
+.navbar ul li a {
+color: white;
+text-decoration: none;
+font-size: 1rem;
+transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+color: #ddd;
+}
+
+/* Estilos para pantallas pequeñas */
+#menu-toggle {
+display: none;
+}
+
+.menu-icono {
+display: none;
+cursor: pointer;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+.navbar {
+  display: none; /* Oculta el menú por defecto */
+  flex-direction: column;
+  width: 100%;
+}
+
+.navbar-one {
+  display: flex; /* Oculta el menú por defecto */
+  flex-direction: column;
+  width: 100%;
+}
+
+.logo {
+color: white;
+font-size: 1.9rem;
+font-weight: bold;
+text-decoration: none;
+}
+
+.navbar ul {
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+
+#menu-toggle:checked + .menu-icono {
+  display: none; /* Oculta el icono de menú cuando está activo */
+}
+
+#menu-toggle:checked + .logo {
+  display: none; /* Oculta el icono de menú cuando está activo */
+}
+
+#menu-toggle:checked ~ .navbar {
+  display: flex; /* Muestra el menú si el checkbox está marcado */
+  
+}
+
+#menu-toggle:checked ~ .logo {
+  display: none; /* Oculta el logo cuando el menú está abierto */
+}
+
+
+.menu-icono {
+  display: block; /* Muestra el icono de menú */
+  img {
+    height: 24px; /* Ajusta el tamaño del icono */
+  }
+}
+}
+
+</style>
 <body>
     <header class="header">
         <div class="menu container">
-            <a href="#" class="logo">logo</a>
-            <input type="checkbox" id="menu" />
-            <label for="menu">
-                <img src="imagenes/menu.png" class="menu-icono" alt="menu">
+            <input type="checkbox" id="menu-toggle" />
+            <a href="#" class="logo">Logos</a>
+            <label for="menu-toggle" class="menu-icono">
+              <img src="imagenes/menu.png" alt="menu" class="menu-icon">
             </label>
             <nav class="navbar">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Profesion</a></li>
-                    <li><a href="#">Sector</a></li>
-                    <li><a href="#">hoja de vida</a></li>
-                </ul>
+              <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Profesion</a></li>
+                <li><a href="#">Sector</a></li>
+                <li><a href="HojaVida.html">Hoja de vida</a></li>
+              </ul>
             </nav>
-        </div>
+          </div>
+          
         <div class="header-content container">
             <div class="header-txt">
-
                 <h1>talento optimo</h1>
                 <p>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -34,11 +279,9 @@
                       veniam consequatur consequuntur accusamus quam, necessitatibus
                        minus officiis, incidunt dolor facere tempora vel nobis.
                 </p>
-                <a href="#" class="btn-1" >informacion</a>
             </div>
         </div>
     </header>
-
     <section class="general container">
         <h2>programa</h2>
             <div class="general-content">
@@ -132,47 +375,6 @@
     </p>
 </div>
 </div>
-</section>
-
-<section class="info-2">
-    <div class="info-content container">
-        <h2>testimonios</h2>
-        <div class="testi">
-            <div class="testi-left">
-                <div class="testi-txt">
-                    <img  width="100" src="imagenes/t1.png" alt="">
-                    <h3>lorem</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Reprehenderit totam nam fuga quasi temporibus eligendi accusantium.
-                          Nisi, at vel voluptatum sed deleniti impedit obcaecati, nesciunt 
-                          ducimus tempora soluta unde! Tempore.
-                    </p>
-                </div>
-                <div class="testi-txt">
-                    <img width="100" src="imagenes/t2.png" alt="">
-                    <h3>lorem</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Reprehenderit totam nam fuga quasi temporibus eligendi accusantium.
-                          Nisi, at vel voluptatum sed deleniti impedit obcaecati, nesciunt 
-                          ducimus tempora soluta unde! Tempore.
-                    </p>
-                </div>
-                <div class="testi-txt">
-                    <img  width="100" src="imagenes/t3.png" alt="">
-                    <h3>lorem</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                         Reprehenderit totam nam fuga quasi temporibus eligendi accusantium.
-                          Nisi, at vel voluptatum sed deleniti impedit obcaecati, nesciunt 
-                          ducimus tempora soluta unde! Tempore.
-                    </p>
-                </div>
-            </div>
-
-    </div>
-    </div>
 </section>
 
 
